@@ -1,7 +1,6 @@
 TARGET  = riscv64-unknown-elf
 CC      = $(TARGET)-gcc
-CFLAGS  = -march=rv32imc -mabi=ilp32 -Wall -Wextra -pedantic -O2 -Iuip
-UIPOPT  = uip/uip/uipopt.h
+CFLAGS  = -march=rv32imc -mabi=ilp32 -Wall -Wextra -pedantic -O2
 SOURCES = slipdev_picosoc.c
 OBJECTS = $(addsuffix .o,$(basename $(SOURCES)))
 VERILOG = picorv32/picosoc/hx8kdemo.v \
@@ -19,12 +18,7 @@ BIN     = picosoc.bin
 all: $(BIN) $(OBJECTS)
 
 clean:
-	$(RM) $(BLIF) $(ASC) $(BIN) $(OBJECTS) $(UIPOPT)
-
-$(OBJECTS): $(UIPOPT)
-
-$(UIPOPT):
-	ln -rs uipopt.h $@
+	$(RM) $(BLIF) $(ASC) $(BIN) $(OBJECTS)
 
 $(BLIF): $(VERILOG)
 	yosys -q -p 'synth_ice40 -top hx8kdemo -blif $(BLIF)' $^
