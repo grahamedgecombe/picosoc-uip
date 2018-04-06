@@ -1,7 +1,7 @@
 TARGET  = riscv64-unknown-elf
 CC      = $(TARGET)-gcc
 CFLAGS  = -march=rv32imc -mabi=ilp32 -Wall -Wextra -pedantic -O2
-SOURCES = slipdev_picosoc.c
+SOURCES = $(wildcard *.c)
 OBJECTS = $(addsuffix .o,$(basename $(SOURCES)))
 VERILOG = picorv32/picosoc/hx8kdemo.v \
           picorv32/picosoc/spimemio.v \
