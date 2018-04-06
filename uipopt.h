@@ -57,6 +57,8 @@
 #ifndef __UIPOPT_H__
 #define __UIPOPT_H__
 
+#include <stdint.h>
+
 /*------------------------------------------------------------------------------*/
 /**
  * \defgroup uipopttypedef uIP type definitions
@@ -69,7 +71,7 @@
  * This may have to be tweaked for your particular compiler. "unsigned
  * char" works for most compilers.
  */
-typedef unsigned char u8_t;
+typedef uint8_t u8_t;
 
 /**
  * The 16-bit unsigned data type.
@@ -77,7 +79,7 @@ typedef unsigned char u8_t;
  * This may have to be tweaked for your particular compiler. "unsigned
  * short" works for most compilers.
  */
-typedef unsigned short u16_t;
+typedef uint16_t u16_t;
 
 /**
  * The statistics data type.
@@ -85,7 +87,7 @@ typedef unsigned short u16_t;
  * This datatype determines how high the statistics counters are able
  * to count.
  */
-typedef unsigned short uip_stats_t;
+typedef uint16_t uip_stats_t;
 
 /** @} */
 
