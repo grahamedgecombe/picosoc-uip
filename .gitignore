@@ -1,1 +1,4 @@
+*.asc
+*.bin
+*.blif
 *.o
