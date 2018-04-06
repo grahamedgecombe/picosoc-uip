@@ -104,7 +104,7 @@ slipdev_send(void)
   ptr = uip_buf;
   for(i = 0; i < uip_len; ++i) {
     if(i == 40) {
-      ptr = (char *)uip_appdata;
+      ptr = (u8_t *)uip_appdata;
     }
     c = *ptr++;
     switch(c) {
