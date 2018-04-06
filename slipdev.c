@@ -142,7 +142,7 @@ slipdev_poll(void)
 {
   u8_t c;
 
-  while(slipdev_char_poll(c)) {
+  while(slipdev_char_poll(&c)) {
     switch(c) {
     case SLIP_ESC:
       lastc = c;
