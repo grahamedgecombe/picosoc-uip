@@ -19,7 +19,7 @@ BIN     = picosoc.bin
 all: $(BIN) $(OBJECTS)
 
 clean:
-	$(RM) $(BLIF) $(ASC) $(BIN) $(OBJECTS)
+	$(RM) $(BLIF) $(ASC) $(BIN) $(OBJECTS) $(UIPOPT)
 
 $(OBJECTS): $(UIPOPT)
 
