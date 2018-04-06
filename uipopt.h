@@ -548,6 +548,7 @@ struct httpd_state {
  * The size of the application state that is to be stored in the
  * uip_conn structure.
  */
+#define UIP_APPSTATE_SIZE 1
 /** @} */
 
 /* Include the header file for the application program that should be
