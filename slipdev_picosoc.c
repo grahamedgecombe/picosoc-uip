@@ -1,7 +1,7 @@
 #include "slipdev_picosoc.h"
+#include "slipdev.h"
 
 #include <stdint.h>
-#include "slipdev.h"
 
 #define UART_CLKDIV (*(volatile uint32_t *) 0x02000004)
 #define UART_DATA   (*(volatile  int32_t *) 0x02000008)
