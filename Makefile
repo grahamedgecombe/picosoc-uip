@@ -8,7 +8,7 @@ LDS     = firmware.lds
 LDFLAGS = -march=rv32imc -mabi=ilp32 -Wl,-T,$(LDS) -ffreestanding -nostartfiles
 OBJCOPY = $(TARGET)-objcopy
 SOURCES = $(filter-out fsdata.c, $(wildcard *.c *.s))
-OBJECTS = $(addsuffix .o,$(basename $(SOURCES)))
+OBJECTS = $(addsuffix .o, $(basename $(SOURCES)))
 ELF     = firmware.elf
 FWBIN   = firmware.bin
 VERILOG = picorv32/picosoc/hx8kdemo.v \
