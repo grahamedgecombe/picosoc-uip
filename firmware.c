@@ -2,7 +2,6 @@
 #include "slipdev.h"
 #include "slipdev_picosoc.h"
 #include "uip.h"
-#include "uip_arp.h"
 
 #include <stdint.h>
 
