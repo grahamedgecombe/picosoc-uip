@@ -46,6 +46,8 @@
 #ifndef __HTTPD_H__
 #define __HTTPD_H__
 
+#include "uip.h"
+
 void httpd_init(void);
 void httpd_appcall(void);
 
