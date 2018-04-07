@@ -11,7 +11,8 @@ SOURCES = $(filter-out fsdata.c, $(wildcard *.c *.s))
 OBJECTS = $(addsuffix .o, $(basename $(SOURCES)))
 ELF     = firmware.elf
 FWBIN   = firmware.bin
-VERILOG = picorv32/picosoc/hx8kdemo.v \
+VERILOG = picorv32/picosoc/pll.v \
+          picorv32/picosoc/hx8kdemo.v \
           picorv32/picosoc/spimemio.v \
           picorv32/picosoc/simpleuart.v \
           picorv32/picosoc/picosoc.v \
