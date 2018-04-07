@@ -4,8 +4,9 @@
 
 A port of [uIP 0.9][uip09] (a minimal TCP/IP stack and web server) to
 [PicoSoC][picosoc] (a [RISC-V][riscv] SoC for the [iCE40][ice40] [HX8K breakout
-board][ice40-hx8k-breakout] based on the [PicoRV32][picorv32] CPU). It uses SLIP
-to send IP packets over the serial port to the host computer.
+board][ice40-hx8k-breakout] based on the [PicoRV32][picorv32] CPU). It uses the
+[Serial Line Internet Protocol (SLIP)][slip] to send IP packets over the serial
+port to the host computer.
 
 ## Dependencies
 
@@ -86,5 +87,6 @@ fast enough to keep up, or perhaps there's a bug somewhere in uIP's web server
 [picosoc]: https://github.com/cliffordwolf/picorv32/tree/master/picosoc
 [riscv-gnu]: https://github.com/riscv/riscv-gnu-toolchain
 [riscv]: https://riscv.org/risc-v-isa/
+[slip]: https://en.wikipedia.org/wiki/Serial_Line_Internet_Protocol
 [uip09]: https://github.com/adamdunkels/uip/tree/uip-0-9
 [yosys]: http://www.clifford.at/yosys/
