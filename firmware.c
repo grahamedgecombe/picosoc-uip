@@ -1,7 +1,7 @@
-#include "httpd.h"
 #include "slipdev.h"
 #include "slipdev_picosoc.h"
 #include "uip.h"
+#include "httpd.h"
 
 #include <stdint.h>
 
