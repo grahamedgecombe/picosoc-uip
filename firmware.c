@@ -1,3 +1,4 @@
+#include "httpd.h"
 #include "slipdev.h"
 #include "slipdev_picosoc.h"
 #include "uip.h"
@@ -18,6 +19,7 @@ int main(void) {
 
     slipdev_picosoc_init();
     uip_init();
+    httpd_init();
 
     uint32_t last_periodic = rdcycle();
 
@@ -42,8 +44,4 @@ int main(void) {
             }
         }
     }
-}
-
-void discard_app(void) {
-    /* empty */
 }

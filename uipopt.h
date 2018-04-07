@@ -541,8 +541,7 @@ struct httpd_state {
  * response to TCP/IP events.
  *
  */
-void discard_app(void);
-#define UIP_APPCALL discard_app
+#define UIP_APPCALL httpd_appcall
 
 /**
  * \var #define UIP_APPSTATE_SIZE
@@ -550,13 +549,13 @@ void discard_app(void);
  * The size of the application state that is to be stored in the
  * uip_conn structure.
  */
-#define UIP_APPSTATE_SIZE 1
+#define UIP_APPSTATE_SIZE (sizeof(struct httpd_state))
 /** @} */
 
 /* Include the header file for the application program that should be
    used. If you don't use the example web server, you should change
    this. */
-/*#include "httpd.h"*/
+#include "httpd.h"
 
 
 #endif /* __UIPOPT_H__ */
