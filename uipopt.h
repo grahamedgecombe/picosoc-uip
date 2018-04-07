@@ -541,6 +541,8 @@ struct httpd_state {
  * response to TCP/IP events.
  *
  */
+void discard_app(void);
+#define UIP_APPCALL discard_app
 
 /**
  * \var #define UIP_APPSTATE_SIZE

@@ -1,17 +1,29 @@
+#include "slipdev.h"
+#include "slipdev_picosoc.h"
+#include "uip.h"
+#include "uip_arp.h"
+
 #include <stdint.h>
 
-#define UART_CLKDIV (*(volatile uint32_t *) 0x02000004)
-#define UART_DATA   (*(volatile  int32_t *) 0x02000008)
-#define LEDS        (*(volatile uint32_t *) 0x03000000)
+#define LEDS (*(volatile uint32_t *) 0x03000000)
 
 int main(void) {
-    LEDS = 0xff;
-    UART_CLKDIV = 104;
+    LEDS = 0xAA;
+
+    slipdev_picosoc_init();
+    uip_init();
 
     for (;;) {
-        int32_t c = UART_DATA;
-        if (c != -1) {
-            UART_DATA = c;
+        uip_len = slipdev_poll();
+        if (uip_len > 0) {
+            uip_input();
+            if (uip_len > 0) {
+                slipdev_send();
+            }
         }
     }
+}
+
+void discard_app(void) {
+    /* empty */
 }
