@@ -298,7 +298,7 @@ typedef uint16_t uip_stats_t;
  *
  * \hideinitializer
  */
-#define UIP_ACTIVE_OPEN 1
+#define UIP_ACTIVE_OPEN 0
 
 /**
  * The maximum number of simultaneously open TCP connections.
@@ -329,7 +329,7 @@ typedef uint16_t uip_stats_t;
  *
  * \hideinitializer
  */
-#define UIP_RECEIVE_WINDOW   32768
+#define UIP_RECEIVE_WINDOW   UIP_BUFSIZE
 
 /**
  * Determines if support for TCP urgent data notification should be
@@ -340,7 +340,7 @@ typedef uint16_t uip_stats_t;
  *
  * \hideinitializer
  */
-#define UIP_URGDATA      1
+#define UIP_URGDATA      0
 
 /**
  * The initial retransmission timeout counted in timer pulses.
@@ -435,7 +435,7 @@ typedef uint16_t uip_stats_t;
  *
  * \hideinitializer
  */
-#define UIP_STATISTICS  1
+#define UIP_STATISTICS  0
 
 /**
  * Determines if logging of certain events should be compiled in.
