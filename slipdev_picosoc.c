@@ -7,7 +7,7 @@
 #define UART_DATA   (*(volatile  int32_t *) 0x02000008)
 
 void slipdev_picosoc_init(void) {
-    UART_CLKDIV = 625; /* 38400 baud at 24 MHz */
+    UART_CLKDIV = 416; /* 57600 baud at 24 MHz */
     slipdev_init();
 }
 
