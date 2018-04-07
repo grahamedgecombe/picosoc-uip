@@ -1,18 +1,18 @@
 /*
  * Copyright (c) 2001, Adam Dunkels.
- * All rights reserved. 
+ * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without 
- * modification, are permitted provided that the following conditions 
- * are met: 
- * 1. Redistributions of source code must retain the above copyright 
- *    notice, this list of conditions and the following disclaimer. 
- * 2. Redistributions in binary form must reproduce the above copyright 
- *    notice, this list of conditions and the following disclaimer in the 
- *    documentation and/or other materials provided with the distribution. 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
  * 3. The name of the author may not be used to endorse or promote
  *    products derived from this software without specific prior
- *    written permission.  
+ *    written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -24,7 +24,7 @@
  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * This file is part of the uIP TCP/IP stack.
  *
@@ -52,7 +52,7 @@ u16_t
 uip_chksum(u16_t *sdata, u16_t len)
 {
   u16_t acc;
-  
+
   for(acc = 0; len > 1; len -= 2) {
     acc += *sdata;
     if(acc < *sdata) {
@@ -85,7 +85,7 @@ uip_tcpchksum(void)
 {
   u16_t hsum, sum;
 
-  
+
   /* Compute the checksum of the TCP header. */
   hsum = uip_chksum((u16_t *)&uip_buf[20 + UIP_LLH_LEN], 20);
 
@@ -97,7 +97,7 @@ uip_tcpchksum(void)
   if((sum += hsum) < hsum) {
     ++sum;
   }
-  
+
   if((sum += BUF->srcipaddr[0]) < BUF->srcipaddr[0]) {
     ++sum;
   }
@@ -115,11 +115,11 @@ uip_tcpchksum(void)
   }
 
   hsum = (u16_t)htons((((u16_t)(BUF->len[0]) << 8) + BUF->len[1]) - 20);
-  
+
   if((sum += hsum) < hsum) {
     ++sum;
   }
-  
+
   return sum;
 }
 /*-----------------------------------------------------------------------------------*/
