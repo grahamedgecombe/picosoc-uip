@@ -32,7 +32,7 @@ int main(void) {
         }
 
         uint32_t now = rdcycle();
-        if ((now - last_periodic) >= 12000000) {
+        if ((now - last_periodic) >= 12000000) { /* ~1 second at 12 MHz */
             last_periodic = now;
 
             for (uint8_t i = 0; i < UIP_CONNS; i++) {
