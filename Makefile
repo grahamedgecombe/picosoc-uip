@@ -7,7 +7,7 @@ LD      = $(CC)
 LDS     = firmware.lds
 LDFLAGS = -march=rv32imc -mabi=ilp32 -Wl,-T,$(LDS) -ffreestanding -nostartfiles
 OBJCOPY = $(TARGET)-objcopy
-SOURCES = $(wildcard *.c *.s)
+SOURCES = $(filter-out fsdata.c, $(wildcard *.c *.s))
 OBJECTS = $(addsuffix .o,$(basename $(SOURCES)))
 ELF     = firmware.elf
 FWBIN   = firmware.bin
