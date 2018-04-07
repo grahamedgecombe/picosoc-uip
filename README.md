@@ -25,7 +25,7 @@ was bumped to 24 MHz.
 Configure the jumpers on the breakout board for flash programming and then run
 `make flash`.
 
-Run the following commands to create the SLIP interface:
+Run the following commands as `root` to create the SLIP interface:
 
     slattach -L -p slip -s 57600 /dev/ttyUSB1 &
     ip addr add 192.168.0.1 peer 192.168.0.2 dev sl0
