@@ -7,10 +7,12 @@ SECTIONS {
     .text : {
         start*(.text);
         *(.text);
+        *(.text*);
     } > flash
 
     .rodata : {
         *(.rodata);
+        *(.rodata*);
     } > flash
 
     data_flash_start = .;
@@ -19,6 +21,9 @@ SECTIONS {
         . = ALIGN(4);
         data_start = .;
         *(.data);
+        *(.data*);
+        *(.sdata);
+        *(.sdata*);
 
         . = ALIGN(4);
         data_end = .;
@@ -28,6 +33,9 @@ SECTIONS {
         . = ALIGN(4);
         bss_start = .;
         *(.bss);
+        *(.bss*);
+        *(.sbss);
+        *(.sbss*);
 
         . = ALIGN(4);
         bss_end = .;
