@@ -1,6 +1,6 @@
 [submodule "picorv32"]
 	path = picorv32
-	url = https://github.com/cliffordwolf/picorv32.git
+	url = https://github.com/grahamedgecombe/picosoc-uip-picorv32.git
 [submodule "uip"]
 	path = uip
 	url = https://github.com/adamdunkels/uip.git
