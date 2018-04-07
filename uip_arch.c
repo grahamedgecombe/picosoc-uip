@@ -36,6 +36,8 @@
 #include "uip.h"
 #include "uip_arch.h"
 
+#include <stdint.h>
+
 #define BUF ((uip_tcpip_hdr *)&uip_buf[UIP_LLH_LEN])
 #define IP_PROTO_TCP    6
 
@@ -43,29 +45,7 @@
 void
 uip_add32(u8_t *op32, u16_t op16)
 {
-  
-  uip_acc32[3] = op32[3] + (op16 & 0xff);
-  uip_acc32[2] = op32[2] + (op16 >> 8);
-  uip_acc32[1] = op32[1];
-  uip_acc32[0] = op32[0];
-  
-  if(uip_acc32[2] < (op16 >> 8)) {
-    ++uip_acc32[1];    
-    if(uip_acc32[1] == 0) {
-      ++uip_acc32[0];
-    }
-  }
-  
-  
-  if(uip_acc32[3] < (op16 & 0xff)) {
-    ++uip_acc32[2];  
-    if(uip_acc32[2] == 0) {
-      ++uip_acc32[1];    
-      if(uip_acc32[1] == 0) {
-	++uip_acc32[0];
-      }
-    }
-  }
+  *((uint32_t *) op32) += op16;
 }
 /*-----------------------------------------------------------------------------------*/
 u16_t
